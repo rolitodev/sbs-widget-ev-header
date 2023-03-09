@@ -1,0 +1,719 @@
+.site-menu {
+    height: 40px;
+    background-color: #9e1c64;
+}
+
+/*Header*/
+#header_banner {
+    background: #ffffff;
+    z-index: 9;
+    border-bottom: none;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+.header-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/*Logo*/
+.header-inner img {
+    max-width: 110px;
+}
+
+/*Toggle dropdown*/
+.navbar-nav>li>a.dropdown-toggle {
+    color: #5c6670;
+    border: 1px solid #d6d9db;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+}
+
+.navbar-nav>li>a.dropdown-toggle:before {
+    content: '';
+    background-image: url(https://sbs.modyocdn.com/uploads/fe8fc065-e957-45ae-92fc-103873a7b09b/original/Vectoraccount.svg);
+    background-size: cover;
+    width: 32px;
+    height: 32px;
+}
+
+.navbar {
+    padding: 0;
+    z-index: 1;
+}
+
+.navbar-nav>li>a.dropdown-toggle:after {
+    color: #9e1c64;
+    border-top: 0.4em solid;
+    border-right: 0.4em solid transparent;
+    border-left: 0.4em solid transparent;
+}
+
+.navbar-nav>li>a span {
+    margin: 0.1rem 1rem 0;
+}
+
+.navbar .dropdown-menu {
+    background: #2b3336;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    width: 200px;
+}
+
+.dropdown .dropdown-menu {
+    position: absolute;
+    display: block;
+    background: #ffffff;
+    border-radius: 4px;
+    text-align: center;
+    width: 120%;
+    left: auto;
+    right: 0;
+    margin-top: 0.5rem;
+    box-shadow: 00px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown .dropdown-menu li:last-child {
+    background: #eff0f1;
+}
+
+.dropdown .dropdown-menu li:last-child a span {
+    display: inline-block;
+}
+
+.dropdown .dropdown-menu li:last-child a span:before {
+    content: '';
+    background-image: url(https://sbs.modyocdn.com/uploads/7c8167d6-b99e-4851-96a6-4dd77f9c294b/original/secure.svg);
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    /* float: left; */
+}
+
+.dropdown .dropdown-menu li a {
+    color: #5c6670;
+    font-size: 14px;
+    padding: 0.8rem;
+    display: block;
+}
+
+.dropdown .dropdown-menu li a:hover {
+    background: transparent;
+}
+
+.dropdown .dropdown-menu li:last-child a {
+    color: #9e1c64;
+}
+
+.brand-content {
+    padding: 1rem;
+}
+
+.brand-content-image {
+    position: relative;
+    width: 100%;
+    /* height: 300px; */
+    height: 200px;
+    display: block;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.brand-content-image img {
+    border-radius: 4px;
+    width: 100%;
+}
+
+/* .brand-content-bg {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 43.86%,
+    rgba(0, 0, 0, 0.5) 99.99%,
+    rgba(0, 0, 0, 0.5) 100%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} */
+.brand-content-image-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #ffffff;
+}
+
+.brand-content-image-text span {
+    font-size: 10px;
+    line-height: 14px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #101e8e;
+    border-radius: 100px;
+    padding: 0.3rem 0.6rem;
+    margin: 0.6rem 0px;
+    display: inline-block;
+}
+
+.brand-content-image-text h2 {
+    font-weight: bold;
+    font-size: 25px !important;
+    line-height: 34px;
+    margin: 0;
+}
+
+.brand-content-image-text p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.brand-content-information {
+    background: #f2f2f2;
+    border-radius: 4px;
+    margin: 1rem 0;
+    margin-bottom: 0;
+    padding: 1rem;
+    display: inline-block;
+}
+
+.brand-content-information h2 {
+    font-weight: bold;
+    font-size: 20px !important;
+    line-height: 27px;
+    color: #5c6670;
+}
+
+.brand-content-information p {
+    font-weight: normal;
+    font-size: 14px;
+    color: #a0a0a0;
+    margin: 0;
+}
+
+.brand-content-information strong {
+    color: #9e1c64;
+}
+
+.brand-content-information ul,
+.modal-c ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.brand-content-information ul li,
+.modal-c ul li {
+    font-size: 14px;
+    line-height: 18px;
+    color: #a0a0a0;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.brand-content-information ul li:before,
+.modal-c ul li:before {
+    content: '';
+    background-image: url(https://sbs.modyocdn.com/uploads/ba53fb2d-aeae-480c-9399-2a507450be70/original/Unioncheck.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+}
+
+.container_financing .btn_financing {
+    margin-right: 1em;
+}
+
+.container_financing>strong {
+    margin-right: 1em;
+}
+
+.container_financing .btn_financing .financing_img {
+    max-width: 130px;
+}
+
+.btn-brokers {
+    background: #9e1c64;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 1rem;
+}
+
+/*Online products*/
+.products {
+    padding: 1rem;
+}
+
+.cta-products {
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+.cta-products .item {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: flex-start;
+    -moz-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-flex-flow: column;
+    -moz-flex-flow: column;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    justify-content: center;
+    -webkit-justify-content: center;
+    width: 100%;
+    padding-left: 10%;
+}
+
+.cta-products .item:nth-child(2) {
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.cta-products .item:nth-child(3) {
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.cta-products h2 {
+    font-weight: bold;
+    font-size: 28px !important;
+    color: #5c6670;
+    margin-bottom: 1rem;
+}
+
+.cta-products a {
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    display: inline-block;
+    min-width: 183px;
+    text-align: center;
+}
+
+.cta-products .online-products a,
+.cta-products .prepriced-products a,
+.cta-products .other-products a {
+    background: #9e1c64;
+}
+
+.cta-products .prepriced-products a.disabled {
+    background-color: #e7c6d8;
+}
+
+.online-products-modal,
+.prepriced-products-modal,
+.activeTooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.43);
+    overflow: hidden;
+    transition: 0.1s all ease;
+    z-index: 99;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.online-products-modal,
+.prepriced-products-modal {
+    background: transparent;
+}
+
+/*.activeTooltip{
+display: block;
+}*/
+.modal-c {
+    width: 55%;
+    background: #fff;
+    height: 100%;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 10% 3%;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.modal-c.prepriced-products-modal-content {
+    padding: 10% 4% 0;
+    height: auto;
+    display: block;
+}
+
+.offside-modal {
+    width: 45%;
+    height: 100%;
+}
+
+.bg {
+    background: rgba(0, 0, 0, 0.43);
+    background: rgba(0, 0, 0, 0.43);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+}
+
+.modal-c .close {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    color: #adb3b7;
+    border: 1px solid #d6d9db;
+    border-radius: 4px;
+    text-shadow: none;
+    opacity: 1;
+    font-weight: normal;
+}
+
+.modal-c h3 {
+    color: #9e1c64;
+    font-weight: bold;
+    font-size: 30px !important;
+    line-height: normal;
+}
+
+.modal-c p {
+    color: #adb3b7;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: normal;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.modal-c .product {
+    padding: 0.5rem;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.modal-c .product a {
+    font-size: 14px;
+    color: #5c6670;
+    border: 1px solid #eff0f1;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-c .product:hover a {
+    border: 1px solid #9e1c64;
+}
+
+.modal-c i {
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.modal-c .product i {
+    display: block;
+    width: 100%;
+    height: 70px;
+}
+
+/*Modal productos precotizados*/
+.modal-c.prepriced-products-modal-content .heading i {
+    width: 65px;
+    height: 65px;
+    margin-top: -35px;
+}
+
+.prepriced-products-modal-content i:before {
+    margin-top: -38px;
+}
+
+.modal-c.prepriced-products-modal-content h3 {
+    font-size: 35px !important;
+    color: #5c6670;
+    line-height: 48px;
+    margin: 0;
+}
+
+.product-line {
+    margin: 0;
+}
+
+.modal-c .heading {
+    width: 100%;
+    margin: 4rem 0 1rem;
+}
+
+.modal-c .heading h4 {
+    font-size: 24px !important;
+    color: #9e1d64;
+    font-weight: bold;
+    float: left;
+    text-transform: capitalize;
+}
+
+.modal-c .heading i {
+    display: block;
+    float: left;
+}
+
+.prepriced-product {
+    padding: 0.5rem 1rem 0.5rem 0;
+    min-width: 165px;
+}
+
+.download-product {
+    padding: 0.7rem;
+    border: 1px solid #eff0f1;
+    border-radius: 4px;
+    min-height: 120px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: initial;
+}
+
+.download-product h5 {
+    font-size: 14px !important;
+    line-height: 19px;
+    max-width: 60%;
+}
+
+.download-product a {
+    border: 1px solid #9e1c64;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: #9e1c64 !important;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    padding: 0.1rem 0.5rem;
+    display: block;
+}
+
+.tooltip {
+    right: 0.5rem;
+    top: 0.5rem;
+    opacity: 1;
+}
+
+.tooltip:before {
+    content: '';
+    background-image: url(https://sbs.modyocdn.com/uploads/ebb8809a-627d-42ec-a8f3-5c3a758961a8/original/tooltip.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.tooltip span {
+    display: none;
+    background: #fff;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 1.8rem;
+    width: 120px;
+    font-size: 12px;
+    border-radius: 6px;
+    color: #adb3b7;
+    z-index: 10;
+    left: -30px;
+}
+
+.tooltip:hover span {
+    display: block;
+}
+
+.tooltip span:before {
+    content: '';
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+    width: 0;
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+}
+
+span.multiselect__single {
+    font-size: 13px;
+    padding: 0 0 0.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 160px;
+    padding: 0;
+}
+
+input.multiselect__input {
+    margin: 0;
+}
+
+.btn-brokers {
+    background: #9e1c64;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: 0 1rem;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 1280px) {
+    .brand-content-image {
+        height: 260px;
+    }
+}
+
+@media (max-width: 992px) {
+    .brand-content-image {
+        height: 160px;
+    }
+
+    .cta-products .item {
+        align-items: center;
+        -webkit-align-items: center;
+        padding: 3rem 0;
+    }
+
+    .modal-c .product {
+        padding: 1rem;
+    }
+
+    .modal-c {
+        width: 100%;
+    }
+
+    .modal-c h3 {
+        font-size: 35px !important;
+    }
+
+    .modal-c .product a {
+        font-size: 16px;
+    }
+
+    .modal-c .product i:before {
+        height: 60px;
+    }
+
+    .cta-products h1 {
+        font-size: 25px !important;
+    }
+
+    .offside-modal {
+        width: 0;
+    }
+
+    .modal-c.prepriced-products-modal-content {
+        padding: 10% 7% 0;
+    }
+
+    .prepriced-product {
+        padding: 1rem 1rem 1rem 0;
+    }
+
+    .brand-content-information {
+        height: auto;
+    }
+
+    .m-multiselect {
+        z-index: 10;
+    }
+}

@@ -1,0 +1,571 @@
+/*Generals*/
+/*:focus, button:focus {
+  outline: 2px auto rgba(0,123,255,.5);
+	border-radius: 2px;
+}*/
+html,
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+button,
+a {
+    cursor: pointer;
+    z-index: 9;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+/*Bootstrap refactor*/
+.container-fluid {
+    padding: 0 4%;
+}
+
+/*brokers search*/
+.m-multiselect {
+    position: relative;
+    margin-left: auto;
+    max-width: 160px;
+    z-index: 5;
+}
+
+.m-multiselect .typo__label {
+    color: #9E1C64;
+    line-height: 16px;
+    margin: 0;
+    font-size: 12px;
+}
+
+.m-multiselect .multiselect {
+    min-height: auto;
+    width: 160px;
+}
+
+.m-multiselect .multiselect__tags {
+    border: none;
+    border-bottom: 2px solid #9E1C64;
+    border-radius: inherit;
+    padding-left: 0;
+    padding-top: 0;
+    min-height: auto;
+}
+
+.m-multiselect .multiselect__select {
+    height: auto;
+    top: auto;
+    bottom: 0;
+    right: 4px;
+    padding: 0;
+    width: auto;
+}
+
+.m-multiselect .multiselect__select:before {
+    content: "";
+    border: none;
+    width: 12px;
+    height: 11px;
+    background-image: url(https://sbs.modyocdn.com/uploads/d95077a7-4858-48dc-ab40-822eeb1d952b/original/arrowdown_pink.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    bottom: 6px;
+    top: -8px;
+}
+
+.m-multiselect .multiselect--active .multiselect__select:before {
+    top: 10px;
+}
+
+.m-multiselect .multiselect__option--selected.multiselect__option--highlight,
+.m-multiselect .multiselect__option--highlight {
+    background: #9e1b64;
+    padding: 1rem .5rem;
+}
+
+.m-multiselect .multiselect__option {
+    padding: 1rem .5rem;
+    white-space: normal;
+    text-transform: lowercase;
+    font-size: 14px;
+}
+
+.multiselect__option:first-letter {
+    text-transform: capitalize;
+}
+
+.multiselect__content {
+    display: block !important;
+}
+
+.multiselect__content-wrapper {
+    overflow-x: hidden;
+}
+
+.m-multiselect .multiselect__content-wrapper::-webkit-scrollbar {
+    background: #D6D9DB;
+    border-radius: 10px;
+    max-width: 4px;
+    margin-right: 10px;
+}
+
+.m-multiselect .multiselect__content-wrapper::-webkit-scrollbar-thumb {
+    width: 4px;
+    height: 100px;
+    background: #858C94;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+}
+
+.m-multiselect .multiselect__content-wrapper::-webkit-scrollbar-track {
+    background: #D6D9DB;
+    border-radius: 10px 10px 0px 0px;
+    width: 4px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.m-multiselect .multiselect__content-wrapper {
+    min-width: 280px !important;
+    max-width: 280px;
+    max-height: 240px !important;
+    margin-top: 14px;
+}
+
+.clickoutside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0;
+}
+
+.broker-name {
+    border-bottom: 2px solid #9E1C64;
+    font-size: 13px;
+    padding: 0 0 .3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 160px;
+}
+
+.broker-status {
+    margin-right: 15px;
+}
+
+/*Modal IE11*/
+#internet-explorer-alert {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 99;
+    background: #ffffff;
+}
+
+#internet-explorer-alert .modal-content {
+    width: 60%;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+    background: #ffffff;
+}
+
+#internet-explorer-alert .modal-content span {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    color: #787878;
+}
+
+#internet-explorer-alert .browsers a {
+    display: inline-block;
+    width: 15%;
+}
+
+.main-container .multiselect__select:before {
+    top: 8px;
+}
+
+.main-container .multiselect--active .multiselect__select:before {
+    top: -18px;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 992px) {
+    .container-fluid {
+        padding: 0 15px;
+    }
+
+    .header-inner {
+        -webkit-flex-flow: wrap;
+        -moz-flex-flow: wrap;
+        -ms-flex-flow: wrap;
+        -webkit-flex-flow: wrap;
+        flex-flow: wrap;
+    }
+
+    #header_banner {
+        padding: 1rem 3% !important;
+    }
+
+    .header-inner .logo {
+        margin: 0 .5rem;
+    }
+
+    .header-inner img {
+        max-width: 120px;
+    }
+
+    .btn-brokers {
+        margin: .5rem !important;
+    }
+
+    .m-multiselect {
+        margin-right: .5rem !important;
+        z-index: 10;
+    }
+
+    .navbar .navbar-collapse {
+        background: transparent;
+        position: relative;
+        display: block;
+        right: auto;
+        top: auto;
+        width: auto;
+    }
+
+    .navbar-nav>li>a.dropdown-toggle:before {
+        width: 26px;
+        height: 26px;
+    }
+
+    .navbar-nav>li>a span {
+        margin: 0 8px;
+        white-space: nowrap;
+    }
+}
+
+/*Input type multiselect*/
+.m-select {
+    position: relative;
+    z-index: 4;
+    display: block;
+    padding: 0;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.m-select>.multiselect,
+.multiselect--disabled {
+    width: 100%;
+    height: 100%;
+    max-height: 40px;
+    padding: 0.1rem 0 !important;
+    margin: 0;
+    min-width: 140px;
+}
+
+.m-select>.multiselect>.multiselect__tags,
+.m-select>.multiselect--disabled>.multiselect__tags {
+    border: none !important;
+    border-radius: inherit;
+    padding-left: 1rem;
+    padding-right: 0;
+    padding-top: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 40px;
+    display: flex;
+    background-color: transparent !important;
+    overflow: hidden;
+}
+
+.m-select>.multiselect>.multiselect__tags>.multiselect__input,
+.m-select>.multiselect>.multiselect__tags>.multiselect__input:disabled,
+.m-select>.multiselect--disabled>.multiselect__tags>.multiselect__input,
+.m-select>.multiselect--disabled>.multiselect__tags>.multiselect__input:disabled {
+    background-color: transparent !important;
+    padding-left: 0;
+    margin-left: 0 !important;
+}
+
+.m-select>.multiselect>.multiselect__select,
+.m-select>.multiselect--disabled>.multiselect__select {
+    height: auto;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+}
+
+
+.m-select>.multiselect--active .multiselect__select {
+    top: 0;
+}
+
+.m-select>.multiselect>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option--selected.multiselect__option--highlight,
+.m-select>.multiselect>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option.multiselect__option--highlight {
+    background: #9e1b64;
+    padding: 1rem 0.5rem;
+}
+
+.m-select>.multiselect>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option,
+.m-select>.multiselect--disabled>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option {
+    padding: 1rem 0.5rem;
+    white-space: normal;
+}
+
+.m-select>.multiselect>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option>span,
+.m-select>.multiselect--disabled>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option>span {
+    text-transform: capitalize !important;
+}
+
+.m-select>.earthquake>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option>span,
+.m-select>.multiselect--disabled>.multiselect__content-wrapper>.multiselect__content>.multiselect__element>.multiselect__option>span {
+    text-transform: initial !important;
+}
+
+.m-select>.earthquake>.multiselect__tags>.multiselect__single {
+    text-transform: initial !important;
+}
+
+.container-siniestralidad .multiselect__option>span {
+    text-transform: initial !important;
+}
+
+.container-siniestralidad .multiselect__single {
+    text-transform: initial !important;
+}
+
+.m-select>.multiselect>.multiselect__content-wrapper>.multiselect__content,
+.m-select>.multiselect--disabled>.multiselect__content-wrapper>.multiselect__content {
+    display: block !important;
+}
+
+.m-select>.multiselect>.multiselect__content-wrapper,
+.m-select>.multiselect--disabled>.multiselect__content-wrapper {
+    overflow-x: hidden;
+    margin-top: 0 !important;
+    min-width: auto !important;
+    max-width: none !important;
+}
+
+.multiselect__single {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    font-size: 14px;
+    white-space: nowrap;
+    padding-left: 0;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.multiselect__content-wrapper::-webkit-scrollbar {
+    background: #d6d9db;
+    border-radius: 10px;
+    max-width: 4px;
+    margin-right: 10px;
+}
+
+.multiselect__content-wrapper::-webkit-scrollbar-thumb {
+    width: 4px;
+    height: 100px;
+    background: #858c94;
+    border-radius: 10px 10px 0px 0px;
+    margin-right: 10px;
+}
+
+.multiselect__content-wrapper::-webkit-scrollbar-track {
+    background: #d6d9db;
+    border-radius: 10px 10px 0px 0px;
+    width: 4px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.multiselect__content-wrapper {
+    min-width: 280px !important;
+    max-width: 280px;
+    max-height: 240px !important;
+    margin-top: 14px;
+}
+
+.multiselect__input {
+    margin-bottom: 0;
+}
+
+.filter-quantity .m-select>.multiselect>.multiselect__tags,
+.m-select>.multiselect--disabled>.multiselect__tags {
+    padding-left: 0;
+}
+
+.filter-quantity .multiselect__single {
+    color: #9e1d64 !important;
+    border: 1px solid #EFF0F1;
+    padding: 3px 6px;
+    margin: 0 !important;
+}
+
+.filter-quantity .multiselect__select {
+    padding: 0;
+    top: auto;
+}
+
+.multiselect__select:before {
+    border: none;
+    width: 12px;
+    height: 11px;
+    background-image: url(https://sbs.modyocdn.com/uploads/d95077a7-4858-48dc-ab40-822eeb1d952b/original/arrowdown_pink.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    top: -20px;
+    right: 4px;
+}
+
+.m-select>.multiselect--active .multiselect__select {
+    bottom: 28px;
+    right: 10px;
+}
+
+/*hide flahs messagges at home and layouts just*/
+.context-home #modyo-site-alert-wrapper,
+.context-layouts #modyo-site-alert-wrapper {
+    display: none;
+}
+
+
+/* LOADER STYLES */
+.m-loader {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.548);
+    z-index: 10;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.m-loader.fixed {
+    position: fixed;
+}
+
+.m-loader.absolute {
+    position: absolute;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: .25rem;
+    border: 1px solid #a42383;
+    border-radius: 3px;
+    padding: 10px;
+    top: 12px;
+    background: transparent;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #9e1c64;
+    border-radius: 3px;
+    padding: 10px;
+    top: 12px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-image: url(https://sbs.modyocdn.com/uploads/22d84140-23bc-4edf-b6ee-979e134d2fd2/original/check_mark.svg);
+    width: 20px;
+    height: 20px;
+    top: 12px;
+}
+
+.custom-control-input {
+    left: 0;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.custom-control-label {
+    padding: 12px;
+}
+
+/*Modal session*/
+div#session-modal {
+    border: 1px solid #EFF0F1;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#session-modal .modal-header,
+#session-modal .modal-footer {
+    border: none;
+    justify-content: center;
+}
+
+#session-modal .modal-header .modal-title {
+    color: #5C6670;
+    font-size: 20px !important;
+}
+
+#session-modal .modal-body p {
+    color: #5C6670;
+}
+
+#session-modal .modal-footer .btn-primary,
+#session-modal .modal-footer .btn-secondary {
+    padding: 6px 1.5rem;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 4px;
+    background: #9e1c64;
+    color: #fff;
+    border: 1px solid #9e1c64;
+}
+
+#session-modal .modal-footer .btn-secondary {
+    background: transparent;
+    color: #9e1c64;
+}
+
+/*Microsoft Edge Input delete field fix*/
+input::-ms-clear {
+    display: none;
+}
+
+.modal-content {
+    background-color: #ffffff !important;
+}
