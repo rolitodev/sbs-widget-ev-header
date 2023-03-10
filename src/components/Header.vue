@@ -197,6 +197,11 @@ export default {
           code: vm.parentAgent.brokerCode,
           name: vm.parentAgent.brokerData,
         }));
+        window.dispatchEvent(new CustomEvent('local-storage-changed', {
+          detail: {
+            storage: localStorage.getItem('intermediaryCode'),
+          },
+        }));
         this.$store.commit('SET_USER_ID', response.data.data.user);
         this.$store.dispatch('GET_AVAILABLE_APPLICATIONS', response.data.data.user);
 
@@ -367,7 +372,12 @@ export default {
           code: value.code,
           name: value.name,
         }));
-        window.dispatchEvent(new Event('storage'));
+        // window.dispatchEvent(new Event('storage'));
+        window.dispatchEvent(new CustomEvent('local-storage-changed', {
+          detail: {
+            storage: localStorage.getItem('intermediaryCode'),
+          },
+        }));
       } else {
         vm.codeAgentSelected = value.brokerCode;
         sessionStorage.setItem(
@@ -379,7 +389,11 @@ export default {
           code: value.brokerCode,
           name: value.brokerData,
         }));
-        window.dispatchEvent(new Event('storage'));
+        window.dispatchEvent(new CustomEvent('local-storage-changed', {
+          detail: {
+            storage: localStorage.getItem('intermediaryCode'),
+          },
+        }));
       }
 
       vm.$store.commit('SET_CODE', vm.codeAgentSelected);
