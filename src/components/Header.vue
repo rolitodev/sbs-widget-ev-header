@@ -193,7 +193,7 @@ export default {
         }
 
         // Se usa en los widget de consultas prod, y demás migrados
-        sessionStorage.setItem('intermediaryCode', JSON.stringify({
+        localStorage.setItem('intermediaryCode', JSON.stringify({
           code: vm.parentAgent.brokerCode,
           name: vm.parentAgent.brokerData,
         }));
@@ -363,10 +363,11 @@ export default {
           JSON.stringify({ code: value.code, name: value.name }),
         );
         // Se usa en los widget de consultas prod, y demás migrados
-        sessionStorage.setItem('intermediaryCode', JSON.stringify({
+        localStorage.setItem('intermediaryCode', JSON.stringify({
           code: value.code,
           name: value.name,
         }));
+        window.dispatchEvent(new Event('storage'));
       } else {
         vm.codeAgentSelected = value.brokerCode;
         sessionStorage.setItem(
@@ -374,10 +375,11 @@ export default {
           JSON.stringify({ code: value.brokerCode, name: value.brokerData }),
         );
         // Se usa en los widget de consultas prod, y demás migrados
-        sessionStorage.setItem('intermediaryCode', JSON.stringify({
+        localStorage.setItem('intermediaryCode', JSON.stringify({
           code: value.brokerCode,
           name: value.brokerData,
         }));
+        window.dispatchEvent(new Event('storage'));
       }
 
       vm.$store.commit('SET_CODE', vm.codeAgentSelected);

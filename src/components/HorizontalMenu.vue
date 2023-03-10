@@ -73,7 +73,7 @@ export default {
     },
     changeTab(value) {
       if (value !== '/consultas-produccion') {
-        sessionStorage.setItem('previousRoute', value);
+        localStorage.setItem('previousRoute', value);
         // eslint-disable-next-line no-restricted-globals
         const link = location.origin;
         // eslint-disable-next-line no-restricted-globals, prefer-template

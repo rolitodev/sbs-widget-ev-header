@@ -35,7 +35,7 @@ Vue.use(MToast, {
 
 // allow dev mode
 if (process.env.NODE_ENV === 'development') {
-  sessionStorage.setItem('intermediaryCode', '{ "code": 1000, "name" :"OFICINA BOGOTÁ" }');
+  localStorage.setItem('intermediaryCode', '{ "code": 1000, "name" :"OFICINA BOGOTÁ" }');
   window.liquid_tags = {
     logo: 'https://sbs.modyocdn.com/uploads/0be755e9-8522-46f6-a520-7379e176eb9f/R360x50/logo-sbs.png',
     sitename: 'Escritorio virtual',
