@@ -94,9 +94,7 @@
                 class="submenu-item submenu-item-cambiar-clave">
                 <a
                   :href="
-                    ssoUrl +
-                      '/auth/realms/escritorio-virtual/account/password?referrer=modyo&referrer_uri=' +
-                      siteUrl
+                    ssoUrl + '/auth/realms/escritorio-virtual/account/password?referrer=modyo&referrer_uri=' + siteUrl
                   ">
                   <span>Cambiar contraseña</span>
                 </a>
@@ -163,7 +161,7 @@ export default {
   },
   created() {
     const vm = this;
-    vm.codeAgentParameter = this.getParameterByName('codeAgent');
+    vm.codeAgentParameter = JSON.parse(localStorage.getItem('intermediaryCode'));
     vm.logo = liquid_tags.logo;
     vm.sitename = liquid_tags.sitename;
     vm.accountUrl = liquid_tags.accountUrl;
@@ -176,44 +174,43 @@ export default {
         vm.codeAgentSelected = response.data.data.agent.code;
         vm.currentUser = response.data.data.user;
         vm.$store.dispatch('GET_ONLINE_PRODUCTS');
+
         if (vm.codeAgentSelected === 'SU0') {
           vm.parentAgent = {
             brokerData: `${response.data.data.agent.name}`,
             brokerCode: vm.codeAgentSelected,
           };
-          vm.agentName = {
-            brokerData: `${response.data.data.agent.name}`,
-            brokerCode: vm.codeAgentSelected,
-          };
+
+          if (vm.codeAgentParameter) {
+            vm.agentName = {
+              brokerData: vm.codeAgentParameter.name,
+              brokerCode: vm.codeAgentParameter.code,
+            };
+          } else {
+            vm.agentName = {
+              brokerData: `${response.data.data.agent.name}`,
+              brokerCode: vm.codeAgentSelected,
+            };
+          }
         } else {
-          vm.parentAgent = {
-            brokerData: `${response.data.data.agent.name} ${vm.codeAgentSelected}`,
-            brokerCode: vm.codeAgentSelected,
-          };
+          // eslint-disable-next-line no-lonely-if
+          if (vm.codeAgentParameter) {
+            vm.parentAgent = {
+              brokerData: vm.codeAgentParameter.name,
+              brokerCode: vm.codeAgentParameter.code,
+            };
+          } else {
+            vm.parentAgent = {
+              brokerData: `${response.data.data.agent.name} ${vm.codeAgentSelected}`,
+              brokerCode: vm.codeAgentSelected,
+            };
+          }
         }
 
-        // Se usa en los widget de consultas prod, y demás migrados
-        localStorage.setItem('intermediaryCode', JSON.stringify({
-          code: vm.parentAgent.brokerCode,
-          name: vm.parentAgent.brokerData,
-        }));
-        window.dispatchEvent(new CustomEvent('local-storage-changed', {
-          detail: {
-            storage: localStorage.getItem('intermediaryCode'),
-          },
-        }));
-        this.$store.commit('SET_USER_ID', response.data.data.user);
-        this.$store.dispatch('GET_AVAILABLE_APPLICATIONS', response.data.data.user);
-
-        if (vm.codeAgentParameter === null || vm.codeAgentSelected === vm.codeAgentParameter) {
-          vm.agentName = {
-            brokerData: `${response.data.data.agent.name} ${vm.codeAgentSelected}`,
-            brokerCode: vm.codeAgentSelected,
-          };
-        } else if (response.data.data.agent.agentsGrouped) {
+        if (response.data.data.agent.agentsGrouped) {
           // eslint-disable-next-line array-callback-return
           response.data.data.agent.agentsGrouped.map((broker) => {
-            if (broker.code === vm.codeAgentParameter) {
+            if (broker.code === vm.codeAgentParameter.code) {
               vm.agentName = {
                 brokerData: `${broker.name} ${broker.code}`,
                 brokerCode: broker.code,
@@ -221,6 +218,21 @@ export default {
             }
           });
         }
+
+        // Se usa en los widget de consultas prod, y demás migrados
+        localStorage.setItem(
+          'intermediaryCode',
+          JSON.stringify({ code: vm.agentName.brokerCode, name: vm.agentName.brokerData }),
+        );
+
+        window.dispatchEvent(new CustomEvent('local-storage-changed', {
+          detail: {
+            storage: localStorage.getItem('intermediaryCode'),
+          },
+        }));
+
+        this.$store.commit('SET_USER_ID', response.data.data.user);
+        this.$store.dispatch('GET_AVAILABLE_APPLICATIONS', response.data.data.user);
 
         vm.siseState = response.data.data.agent.siseState;
 
@@ -256,87 +268,8 @@ export default {
         vm.showLoader = false;
       })
       .catch(() => {
-        /** *
-         * ! comentar
-         */
-        // if (process.env.NODE_ENV === 'development') {
-        //   vm.$store.dispatch('GET_ONLINE_PRODUCTS');
-        //   vm.codeAgentSelected = DataDb.agente.data.agent.code;
-
-        //   if (vm.codeAgentSelected === 'SU0') {
-        //     vm.parentAgent = {
-        //       brokerData: `${DataDb.agente.data.agent.name}`,
-        //       brokerCode: vm.codeAgentSelected,
-        //     };
-        //     vm.agentName = {
-        //       brokerData: `${DataDb.agente.data.agent.name}`,
-        //       brokerCode: vm.codeAgentSelected,
-        //     };
-        //   } else {
-        //     vm.parentAgent = {
-        //       brokerData: `${DataDb.agente.data.agent.name} ${vm.codeAgentSelected}`,
-        //       brokerCode: vm.codeAgentSelected,
-        //     };
-        //   }
-
-        //   this.$store.dispatch('GET_AVAILABLE_APPLICATIONS', DataDb.agente.data.user).then(() => {
-        //     // vm.$store.dispatch('GET_ONLINE_PRODUCTS');
-        //   });
-
-        //   if (vm.codeAgentParameter === null || vm.codeAgentSelected === vm.codeAgentParameter) {
-        //     vm.agentName = {
-        //       brokerData: `${DataDb.agente.data.agent.name} ${vm.codeAgentSelected}`,
-        //       brokerCode: vm.codeAgentSelected,
-        //     };
-        //   } else if (DataDb.agente.data.agent.agentsGrouped) {
-        //     // eslint-disable-next-line array-callback-return
-        //     DataDb.agente.data.agent.agentsGrouped.map((broker) => {
-        //       if (broker.code === vm.codeAgentParameter) {
-        //         vm.agentName = {
-        //           brokerData: `${broker.name} ${broker.code}`,
-        //           brokerCode: broker.code,
-        //         };
-        //       }
-        //     });
-        //   }
-
-        //   vm.siseState = DataDb.agente.data.agent.siseState;
-
-        //   sessionStorage.setItem(
-        //     'brokerSelected',
-        //     JSON.stringify({ code: vm.agentName.brokerCode, name: vm.agentName.brokerData }),
-        //   );
-        //   vm.$store.commit('SET_CODE', vm.agentName.brokerCode);
-        //   if (DataDb.agente.data.agent.agentsGrouped) {
-        //     // Mapeo de datos de brokers asociados
-        //     const myData = DataDb.agente.data.agent.agentsGrouped.map((broker) => {
-        //       // esli nt-disable-next-line no-param-reassign
-        //       // eslint-disable-next-line no-param-reassign
-        //       broker.$isDisabled = broker.siseState === 'C';
-        //       if (!broker.brokerData && broker.siseState === 'A') {
-        //         // eslint-disable-next-line no-param-reassign
-        //         broker.brokerData = `${broker.name} ${broker.code}`;
-        //       } else if (!broker.brokerData && broker.siseState === 'I') {
-        //         // eslint-disable-next-line no-param-reassign
-        //         broker.brokerData = `${broker.name} ${broker.code} (Inactivo)`;
-        //       } else if (!broker.brokerData && broker.siseState === 'C') {
-        //         // eslint-disable-next-line no-param-reassign
-        //         broker.brokerData = `${broker.name} ${broker.code} (Cancelado)`;
-        //       } else {
-        //         // eslint-disable-next-line no-param-reassign
-        //         broker.brokerData = `${broker.name} ${broker.code} (Inactivo)`;
-        //       }
-        //       return broker;
-        //     });
-        //     myData.unshift(vm.parentAgent);
-        //     vm.intermediateList = myData;
-        //     vm.$store.commit('SET_INTERMEDIARIES', myData);
-        //   }
-
-        //   vm.showLoader = false;
-        // } else {
-        //   throw err;
-        // }
+        vm.showLoader = false;
+        throw err;
       });
   },
   methods: {
