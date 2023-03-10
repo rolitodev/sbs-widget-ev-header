@@ -267,7 +267,7 @@ export default {
         }
         vm.showLoader = false;
       })
-      .catch(() => {
+      .catch((err) => {
         vm.showLoader = false;
         throw err;
       });
